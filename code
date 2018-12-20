@@ -37,10 +37,6 @@ post_header={
     'Connection':'keep-alive',
 }
 
-'''
-password在post的参数中经过base64编码,
-为了查找password加密方式...吐血三升.
-'''
 post_data={'domain':DOMAIN_SELECTION,
            'enablemacauth':'0',
            'password':base64.b64encode(USER_PASSWATD.encode()),
@@ -51,8 +47,4 @@ z=requests.post(post_addr,data=post_data,headers=post_header)
 #z.text为str类型的json数据因此先编码成byte类型在解码成unicode型这样就可以正常输出中文
 s=z.text.encode('utf-8').decode('unicode-escape')
 print(s)
---------------------- 
-作者：shenhuaifeng 
-来源：CSDN 
-原文：https://blog.csdn.net/shenhuaifeng/article/details/78333851 
-版权声明：本文为博主原创文章，转载请附上博文链接！
+
