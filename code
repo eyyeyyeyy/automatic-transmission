@@ -1,10 +1,8 @@
-
-
 import base64
 import requests
 '''
-输入账号密码和登录的网络
-网络参数为如果是移动的则填写CMCC
+输入账号密码和登录网络
+网络参数：如果是移动的则填写CMCC
 如果是学号则填NUIST
 '''
 USER_ACCOUNT='110'
@@ -37,7 +35,7 @@ post_data={'domain':DOMAIN_SELECTION,
           }
 #发送post请求登录网页
 z=requests.post(post_addr,data=post_data,headers=post_header)
-#z.text为str类型的json数据因此先编码成byte类型在解码成unicode型这样就可以正常输出中文
+#z.text为str类型的json数据，因此先编码成byte类型，再解码成unicode型，就可以正常输出中文
 s=z.text.encode('utf-8').decode('unicode-escape')
 print(s)
 
